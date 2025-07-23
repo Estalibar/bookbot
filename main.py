@@ -1,4 +1,7 @@
 from stats import get_num_words, get_distinct_char, pretty_list
+import sys
+
+#Usage: python3 main.py <path_to_book>
 
 def get_book_text(filepath):
     with open(filepath) as f:
@@ -6,7 +9,7 @@ def get_book_text(filepath):
     return file_contents
 
 def main():
-    book_text = get_book_text("books/frankenstein.txt")
+    book_text = get_book_text()
     num_words = get_num_words(book_text)
     num_char = get_distinct_char(book_text)
     sorted_list = pretty_list(num_char)
