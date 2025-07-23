@@ -1,4 +1,4 @@
-from stats import get_num_words, get_distinct_char
+from stats import get_num_words, get_distinct_char, pretty_list
 
 def get_book_text(filepath):
     with open(filepath) as f:
@@ -9,7 +9,15 @@ def main():
     book_text = get_book_text("books/frankenstein.txt")
     num_words = get_num_words(book_text)
     num_char = get_distinct_char(book_text)
-    print(num_words)
-    print(num_char)
-    
+    sorted_list = pretty_list(num_char)
+    print("============ BOOKBOT ============")
+    print("Analyzing book found at books/frankenstein.txt...")
+    print("----------- Word Count ----------")
+    print(f"Found {num_words} total words")
+    print("--------- Character Count -------")
+    for char_count in sorted_list:
+        key, value = list(char_count.items())[0]
+        print(f"{key}: {value}")
+    print("============= END ===============")
+
 main()
